@@ -10,7 +10,7 @@
 <script>
 export default {
   created() {
-    this.$store.commit('settoken',localStorage.getItem('token'))
+    // this.$store.commit('settoken',localStorage.getItem('token'))
     // console.log(this.$store.state.token)
     if(this.$store.state.token){
       this.$router.push({path:'/botnav/index'});
