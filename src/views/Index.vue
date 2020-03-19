@@ -66,6 +66,7 @@
     .listul
         display flex
         flex-wrap wrap
+        
     .listli
         width 20%
         justify-content center

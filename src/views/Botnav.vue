@@ -39,7 +39,7 @@
                 console.log(label)
             },
             //点击与自身不同的其他导航
-            changeHandler(label) {
+            changeHandler(label,value) {
                 // if you clicked different tab, this methods can be emitted
                 switch(label){
                     case '首页':
@@ -58,11 +58,32 @@
                         this.$router.push({path:'/botnav/mine'});
                     break
                 }
+                
             }
-        }
+        },
+        created() {
+            switch(this.$route.path){
+                case '/botnav/index':
+                    this.selectedLabelDefault = '首页';
+                break
+                case '/botnav/lists':
+                    this.selectedLabelDefault = '分类';
+                break
+                case '/botnav/search':
+                    this.selectedLabelDefault = '搜索';
+                break
+                case '/botnav/cart':
+                    this.selectedLabelDefault = '购物车';
+                break
+                case '/botnav/mine':
+                    this.selectedLabelDefault = '我的';
+                break
+            }
+        },
     }
 </script>
 <style lang="stylus">
+    
     .cube-tab-bar.botnav 
         position fixed 
         bottom 0 
@@ -83,6 +104,7 @@
         opacity 0
         -webkit-transform translate(100%,0)
         transform translate(100%,0)
+        
     .slide-left-leave-active,.slide-right-enter
         opacity 0
         -webkit-transform translate(-100%,0)

@@ -9,6 +9,15 @@
 </template>
 <script>
 export default {
+  created() {
+    this.$store.commit('settoken',localStorage.getItem('token'))
+    // console.log(this.$store.state.token)
+    if(this.$store.state.token){
+      this.$router.push({path:'/botnav/index'});
+    }else{
+      // this.$router.push({path:'/login'});
+    }
+  },
   data(){
     return{
       model:{
@@ -75,8 +84,12 @@ export default {
             if(result.code == '0'){
               this.$store.commit('settoken',result.token)
               window.localStorage.setItem('token',result.token)
-              this.$router.push({path:'/botnav/index'});
-              
+              // this.$router.push({path:'/botnav/index'});
+              if(this.$route.query.redirect){
+                this.$router.push({path:this.$route.query.redirect});
+              }else{
+                this.$router.push({path:'/botnav/index'});
+              }
             }else{
               alert(result.message)
             }

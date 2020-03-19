@@ -35,12 +35,18 @@ export default new Router({
         {
           path: 'cart',
           name: 'cart',
-          component: () => import('./views/Cart.vue')
+          component: () => import('./views/Cart.vue'),
+          meta: {
+            requireAuth:true //当有这个字段的时候，我们就认为他这个路由页面是要有登录权限
+          }
         },
         {
           path: 'mine',
           name: 'mine',
-          component: () => import('./views/Mine.vue')
+          component: () => import('./views/Mine.vue'),
+          meta: {
+            requireAuth:true //当有这个字段的时候，我们就认为他这个路由页面是要有登录权限
+          }
         }
       ]
     },
