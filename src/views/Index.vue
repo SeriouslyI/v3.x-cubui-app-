@@ -7,7 +7,25 @@
                 </a>
             </cube-slide-item>
         </cube-slide>
-
+        <cube-slide ref="slide" :data="items" @change="changePage">
+            <cube-slide-item v-for="(item, index) in items" :key="index" @click.native="clickHandler(item, index)">
+                <a :href="item.url">
+                    <img :src="item.image">
+                </a>
+            </cube-slide-item>
+        </cube-slide>
+        <cube-slide ref="slide" :data="lists" @change="changePage" :auto-play="false">
+            <cube-slide-item v-for="(list, index) in lists" :key="index">
+                <ul class="listul">
+                    <li class="listli" v-for="(item,index1) in list" :key="index1">
+                        <a :href="item.url">
+                            <img :src="item.image" alt="">
+                            <p>{{item.label}}</p>
+                        </a>
+                    </li>
+                </ul>
+            </cube-slide-item>
+        </cube-slide>
         <cube-slide ref="slide" :data="lists" @change="changePage" :auto-play="false">
             <cube-slide-item v-for="(list, index) in lists" :key="index">
                 <ul class="listul">

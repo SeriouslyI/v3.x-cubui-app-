@@ -104,9 +104,10 @@
         opacity 0
         -webkit-transform translate(100%,0)
         transform translate(100%,0)
-        
+        height 0
     .slide-left-leave-active,.slide-right-enter
         opacity 0
         -webkit-transform translate(-100%,0)
-        transform translate(-100%,0) 
+        transform translate(-100%,0)
+        height 0
 </style>
